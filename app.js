@@ -1,12 +1,15 @@
-express = require("express");
+const express = require("express");
+const authRoutes = require("./routes/auth-routes");
 
-app = express();
+const app = express();
 
 // set up express view engine:
 app.set("view engine", "ejs");
 
-// set connection and entry point:
+//set up auth routes:
+app.use("/auth", authRoutes); //here we adding auth let's say box when all routes from that file will work
 
+// set connection and entry point:
 app.listen(3000, () => {
   console.log("express now is listening on port 3000");
 });
